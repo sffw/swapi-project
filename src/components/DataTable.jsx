@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 // Make table pretty
 // Make new repo
 
-const StarWarsCharacterTable = () => {
+export const DataTable = () => {
   // const [characters, setCharacters] = useState([]);
 
   const fetchCharacters = async () => {
@@ -48,5 +48,3 @@ const StarWarsCharacterTable = () => {
     </table>
   );
 };
-
-export default StarWarsCharacterTable;
