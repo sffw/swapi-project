@@ -1,27 +1,44 @@
 import React, { useState } from "react";
 
 export const Uploader = () => {
-  const [selectedFile, setSelectedFile] = useState();
+  const [files, setFiles] = useState([]);
 
-  const fileHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    for (let file of files) {
+      formData.append("files", file);
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/uploads", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
-  const uploadHandler = () => {
-    let data = new FormData();
-    data.append("file", selectedFile);
-    data = JSON.stringify(data);
-
-    fetch("http://localhost:3000/upload", {
-      method: "POST",
-      body: data,
-    });
+  const handleFileChange = (e) => {
+    setFiles(e.target.files);
   };
 
   return (
-    <div>
-      <input type="file" name="file" onChange={fileHandler} />
-      <button onClick={uploadHandler}>Upload!</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="file"
+        name="file"
+        id="files"
+        multiple
+        onChange={handleFileChange}
+      />
+      <button type="submit">Submit</button>
+    </form>
   );
 };
