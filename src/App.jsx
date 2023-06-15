@@ -2,6 +2,9 @@ import { createRoot } from "react-dom/client";
 import { Uploader } from "./components/Uploader";
 import { DataTable } from "./components/DataTable";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "./styles.css";
+import { TopNavbar } from "./components/Navbars/TopNavbar";
+import { LeftNavbar } from "./components/Navbars/LeftNavbar";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,7 +19,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <div>
-        <h1>Welcome to Swapi</h1>
+        <LeftNavbar />
+        <TopNavbar />
         <DataTable />
         <Uploader />
       </div>
