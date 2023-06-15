@@ -1,12 +1,13 @@
 const express = require("express");
-const app = express();
-const fs = require('fs');
+const cors = require('cors')
 const multer = require('multer');
 
+const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors()) // initialize cors for all paths to allow incoming requests from any IP
+
 
 
 const upload = multer({
@@ -19,8 +20,8 @@ const upload = multer({
 });
 
 app.post('/upload', upload.single('file'), (req, res) => {
-    const file = req.file;
-    // do something with the file
+    console.log(req.body)
+    return res.send("File uploaded")
 });
 
 app.listen(PORT, () => console.log("Server running on port " + PORT));
