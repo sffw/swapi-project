@@ -2,7 +2,8 @@ import { Pagination } from "@mui/material";
 import { TableData } from "./TableData";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import tableStyles from "../../styles/TableStyle.module.css";
+import tableStyles from "../../styles/Table.module.css";
+import loaderStyles from "../../styles/Loader.module.css";
 
 export const TableArea = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +19,18 @@ export const TableArea = () => {
   });
 
   if (isLoading) {
-    return <>Loading</>;
+    return (
+      <div class={loaderStyles["lds-roller"]}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
   }
 
   console.log("data", data);

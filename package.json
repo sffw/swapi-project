@@ -7,7 +7,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "vite & nodemon server/server",
-    "build": "vite build",
+    "build": "vite build & nodemon server/server",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

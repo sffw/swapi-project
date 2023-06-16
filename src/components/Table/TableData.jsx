@@ -1,4 +1,4 @@
-import tableStyles from "../../styles/TableStyle.module.css";
+import tableStyles from "../../styles/Table.module.css";
 // Implement Pagination - Next, back, styled
 // Custom CSS
 // Make table pretty

@@ -4,27 +4,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1em;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #CFCBCA
+ margin: 10px 0;
+}
+
+.table thead {
+  background-color: #86858525;
+  font-size: 1.1rem;
 }
 
 .table th,
 .table td {
-  border: 1px solid #000;
+  border: 1px solid #19181816;
   padding: 15px;
   text-align: left;
 }
 
-.table tr {
+.table tbody tr {
   transition: background-color 0.3s ease;
+  color: rgb(40, 39, 39);
 }
 
 .table tbody tr:hover {
-  background-color: #c9cdce
+  background-color: #c7cdce88
 
 }

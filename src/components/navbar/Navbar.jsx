@@ -26,6 +26,7 @@ export const Navbar = () => {
         <a
           href="https://github.com/sffw/swapi-project"
           className={styles["add-a-file"]}
+          target="_blank"
         >
           <img src={githubIcon} alt="GH" />
         </a>

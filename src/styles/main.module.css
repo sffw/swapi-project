@@ -1,12 +1,11 @@
 body {
-    background-color: #CFCBCA;
+    background-color: #D8DDDE;
 }
 
 #app-container {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-color: #D8DDDE;
     height: 100%;
     width: 100%;
     font-family: 'Oswald', sans-serif;

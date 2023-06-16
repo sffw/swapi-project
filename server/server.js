@@ -19,23 +19,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });  // save files in database directory in project root
 
-fs.readdir("./database", function (err, files) {
-    //handling error
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    }
-    //listing all files using forEach
-    if (files.length === 0) console.log("No files in directory")
-    files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file);
-    });
-});
 
 
 app.post('/uploads', upload.array('files'), (req, res) => {
-    console.log('req.files', req.files)
-
+    console.log('Files recieved', req.files)
     return res.sendStatus(202);
 });
 
