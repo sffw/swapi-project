@@ -3,12 +3,26 @@ body {
 }
 
 #top-nav {
+    position: fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
     width: 100%;
-    background-color: lightcoral;
+    height: 60px;
+    background-color: #D8DDDE;
 }
 
-.icons img {
+#add-file {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+#add-file img {
 height: 2em;
+}
+
+#add-file span {
+    padding: 10px;
+    margin-right: 10px;
 }

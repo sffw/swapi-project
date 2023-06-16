@@ -16,7 +16,7 @@ export const LeftNavbar = () => {
       </button> */}
       <div id="left-title">
         <h1 className={open ? styles.sideitem : styles.sideitemClosed}>
-          SWAPI Dev Test
+          SWAPI Dev
         </h1>
       </div>
       <div className={open ? styles.sideitem : styles.sideitemClosed}>
