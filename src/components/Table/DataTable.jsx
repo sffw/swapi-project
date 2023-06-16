@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
 
 // Implement Pagination - Next, back, styled
@@ -6,7 +7,8 @@ import { useQuery } from "react-query";
 // Make new repo
 
 export const DataTable = () => {
-  // const [characters, setCharacters] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const fetchCharacters = async () => {
     return (await fetch("https://swapi.dev/api/people/")).json();

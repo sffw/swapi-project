@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+}
+
+#top-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: lightcoral;
+}
+
+.icons img {
+height: 2em;
+}

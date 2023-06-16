@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { Uploader } from "./components/Uploader";
-import { DataTable } from "./components/DataTable";
+import { DataTable } from "./components/Table/DataTable";
 import { QueryClient, QueryClientProvider } from "react-query";
-import "./styles.css";
+import styles from "./styles/main.module.css";
 import { TopNavbar } from "./components/Navbars/TopNavbar";
 import { LeftNavbar } from "./components/Navbars/LeftNavbar";
 
@@ -18,11 +18,14 @@ const queryClient = new QueryClient({
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <div>
+      <div id={styles["app-container"]}>
         <LeftNavbar />
-        <TopNavbar />
-        <DataTable />
-        <Uploader />
+        <div id={styles["main-content-area"]}>
+          <TopNavbar />
+          <div id={styles["table-area"]}>
+            <DataTable />
+          </div>
+        </div>
       </div>
     </QueryClientProvider>
   );

@@ -1,0 +1,21 @@
+#app-container {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: lightblue;
+    height: 100%;
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+}
+
+#main-content-area {
+    width: 100%;
+}
+
+#table-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 50px;
+}
