@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+    background-color: #c6dade;
+    border-bottom: 1px solid gray;
+  }
+  
+  .navItems {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 20px;
+  }
+
+  .navItems img {
+    height: 2em;
+  }
+
+  .navItems a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .add-file {
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* When the screen size is 600px or less, stack navItems vertically
+  @media screen and (max-width: 600px) {
+    .top-nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navItems {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .add-file {
+      margin-top: 20px;
+    }
+  }
+   */

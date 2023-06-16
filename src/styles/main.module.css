@@ -1,16 +1,17 @@
+body {
+    background-color: #CFCBCA;
+}
+
 #app-container {
     margin: 0;
     display: flex;
-    flex-direction: row;
-    background-color: #CFCBCA;
+    flex-direction: column;
+    background-color: #D8DDDE;
     height: 100%;
     width: 100%;
     font-family: 'Oswald', sans-serif;
 }
 
-#main-content-area {
-    width: 100%;
-}
 
 #table-area{
     display: flex;

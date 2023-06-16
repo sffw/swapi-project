@@ -2,12 +2,10 @@ import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { createTheme } from "@mui/material/styles";
 import styles from "./styles/main.module.css";
-import { TopNavbar } from "./components/Navbars/TopNavbar";
-import { LeftNavbar } from "./components/Navbars/LeftNavbar";
-import { TableArea } from "./components/Table/TableArea";
-import { Uploader } from "./components/Uploader";
+import { TableArea } from "./components/table/TableArea";
 import { ThemeProvider } from "@emotion/react";
-import DataGridDemo from "./components/DataGridDemo";
+import { Navbar } from "./components/navbar/Navbar";
+import { Uploader } from "./components/Uploader";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,12 +36,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <div id={styles["app-container"]}>
-          <LeftNavbar />
-          <div id={styles["main-content-area"]}>
-            <TopNavbar />
-            <div id={styles["table-area"]}>
-              <TableArea />
-            </div>
+          <Navbar />
+          <div id={styles["table-area"]}>
+            <TableArea />
           </div>
         </div>
       </ThemeProvider>
