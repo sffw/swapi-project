@@ -2,10 +2,12 @@ import uploadIcon from "./../../assets/uploadIcon.svg";
 import githubIcon from "./../../assets/github-mark.svg";
 import styles from "../../styles/Nav.module.css";
 import { uploadHelper } from "./uploadHelper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import UploadAlert from "../UploadedAlert";
 
-export const Navbar = () => {
+export const Navbar = ({ fileUploaded }) => {
   const [files, setFiles] = useState([]);
+  const [uploadMessage, setUploadMessage] = useState(false);
 
   const handleFileChange = async (e) => {
     setFiles(e.target.files);
@@ -16,35 +18,51 @@ export const Navbar = () => {
       formData.append("files", file);
     }
 
-    uploadHelper(formData);
+    await uploadHelper(formData);
+    setUploadMessage(true);
   };
 
-  return (
-    <nav className={styles["top-nav"]}>
-      <h1>SWAPI Character Table</h1>
-      <div className={styles.navItems}>
-        <a
-          href="https://github.com/sffw/swapi-project"
-          className={styles["add-a-file"]}
-          target="_blank"
-        >
-          <img src={githubIcon} alt="GH" />
-        </a>
+  useEffect(() => {
+    console.log(uploadMessage);
+  }, [uploadMessage]);
 
-        <form className={styles["add-file"]}>
-          <input
-            style={{ display: "none" }}
-            type="file"
-            name="file"
-            id="files"
-            multiple
-            onChange={handleFileChange}
-          />
-          <label htmlFor="files">
-            <img src={uploadIcon} alt="upload" style={{ cursor: "pointer" }} />
-          </label>
-        </form>
-      </div>
-    </nav>
+  return (
+    <div>
+      <nav className={styles.nav}>
+        <h1>SWAPI Character Table</h1>
+        <div className={styles.navItems}>
+          <a
+            href="https://github.com/sffw/swapi-project"
+            className={styles["add-a-file"]}
+            target="_blank"
+          >
+            <img src={githubIcon} alt="GH" />
+          </a>
+
+          <form className={styles["add-file"]}>
+            <input
+              style={{ display: "none" }}
+              type="file"
+              name="file"
+              id="files"
+              multiple
+              onChange={handleFileChange}
+            />
+            <label htmlFor="files">
+              <img
+                src={uploadIcon}
+                alt="upload"
+                style={{ cursor: "pointer" }}
+              />
+            </label>
+          </form>
+        </div>
+      </nav>
+      {uploadMessage === true ? (
+        <UploadAlert uploaded={true} />
+      ) : (
+        <UploadAlert uploaded={false} />
+      )}
+    </div>
   );
 };

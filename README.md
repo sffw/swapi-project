@@ -16,7 +16,7 @@ To get started
 
 ### Layout and Styling
 
-All of the styling is done with CSS modules, with the exception of pagination using a pre-built MUI Component.
+All of the styling is done with CSS modules, with the exception of pagination and alerts windows using a pre-built MUI Component.
 
 ### Pagination
 
@@ -24,4 +24,4 @@ I decided to use `reqParams` over the SWAPI object's `data.next` property so tha
 
 ### File Upload
 
-Files can be uploaded in the top right corner by clicking the icon. I used the multer node library to handle all file types.
+Files can be uploaded in the top right corner by clicking the icon. I used the multer node library to handle all file types and files are stored in a folder called `database` in the root directory. All front end logic for the file upload lives in the Navbar component.

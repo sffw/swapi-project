@@ -6,8 +6,9 @@ export const uploadHelper = async (formData) => {
         });
 
         const data = await response.json();
-        console.log(data);
+        return await "success"
     } catch (error) {
         console.error("Error:", error);
+        return "error"
     }
 };

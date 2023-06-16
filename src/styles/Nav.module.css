@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-.top-nav {
+.nav {
     display: flex;
     justify-content: space-between;
     text-align: center;

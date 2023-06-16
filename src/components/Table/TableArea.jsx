@@ -7,7 +7,6 @@ import loaderStyles from "../../styles/Loader.module.css";
 
 export const TableArea = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
 
   const fetchCharacters = async (page) => {
     return (await fetch(`https://swapi.dev/api/people/?page=${page}`)).json();
@@ -20,7 +19,7 @@ export const TableArea = () => {
 
   if (isLoading) {
     return (
-      <div class={loaderStyles["lds-roller"]}>
+      <div className={loaderStyles["lds-roller"]}>
         <div></div>
         <div></div>
         <div></div>
