@@ -8,7 +8,6 @@ app.use(cors()) // initialize cors for all paths allowing incoming requests from
 
 const PORT = 3000;
 
-// Revent Update
 if (!fs.existsSync('database')) fs.mkdirSync('database')
 
 const storage = multer.diskStorage({
