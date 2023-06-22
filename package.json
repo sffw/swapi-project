@@ -1,7 +1,7 @@
 {
   "name": "swapi-project",
   "version": "1.0.0",
-  "description": "Monolith dev test",
+  "description": "dev test",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
