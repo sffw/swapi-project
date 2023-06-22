@@ -8,6 +8,9 @@ app.use(cors()) // initialize cors for all paths allowing incoming requests from
 
 const PORT = 3000;
 
+// Revent Update
+if (!fs.existsSync('database')) fs.mkdirSync('database')
+
 const storage = multer.diskStorage({
     destination: (req, res, cb) => {
         cb(null, "database") // Sets the local directory destination for uploaded files
