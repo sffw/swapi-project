@@ -7,8 +7,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "vite & nodemon server/server",
-    "build": "vite build & nodemon server/server",
-    "preview": "vite preview",
+    "build": "vite build",
+    "preview": "vite preview & nodemon server/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Spencer White",
