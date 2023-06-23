@@ -1,31 +1,37 @@
 const express = require("express");
 const multer = require("multer");
-const cors = require('cors')
-const fs = require('fs')
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
-app.use(cors()) // initialize cors for all paths allowing incoming requests from any IP
+app.use(cors());
 
 const PORT = 3000;
 
-if (!fs.existsSync('database')) fs.mkdirSync('database')
+if (!fs.existsSync('database')) fs.mkdirSync('database');
 
 const storage = multer.diskStorage({
-    destination: (req, res, cb) => {
-        cb(null, "database") // Sets the local directory destination for uploaded files
+    destination: (req, file, cb) => {
+        cb(null, "database");
     },
     filename: (req, file, cb) => {
-        cb(null, file.originalname) // saves uploaded file under original file name in database directory
+        cb(null, file.originalname);
     }
-})
+});
 
-const upload = multer({ storage: storage });  // save files in database directory in project root
-
-
+const upload = multer({ storage: storage });
 
 app.post('/uploads', upload.array('files'), (req, res) => {
-    console.log('Files recieved', req.files)
-    return res.sendStatus(202);
+
+    if (fs.existsSync(`database/${req.files[0].originalname}`)) {
+        console.log(`${req.files[0].originalname} successfully saved`)
+        return res.sendStatus(202);
+    } else {
+        console.log("File upload unsuccessful")
+        return res.status(500).send("File not found");
+
+    }
 });
 
 app.listen(PORT, () => console.log("Server running on port " + PORT));
