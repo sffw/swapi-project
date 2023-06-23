@@ -3,8 +3,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import styles from "./styles/App.module.css";
 import { TableArea } from "./components/table/TableArea";
 import { Navbar } from "./components/navbar/Navbar";
-import UploadAlert from "./components/UploadedAlert";
-import { useEffect, useState } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {

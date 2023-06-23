@@ -18,6 +18,7 @@ export const TableArea = () => {
   });
 
   if (isLoading) {
+    // CSS Custom Loader
     return (
       <div className={loaderStyles["lds-roller"]}>
         <div></div>

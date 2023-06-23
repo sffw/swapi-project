@@ -1,9 +1,4 @@
 import tableStyles from "../../styles/Table.module.css";
-// Implement Pagination - Next, back, styled
-// Custom CSS
-// Make table pretty
-// Make new repo
-// Use the .next and .previous on the SWAPI object rather than messing with reqParams
 
 export const TableData = ({ characters }) => {
   return (
