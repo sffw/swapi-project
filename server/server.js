@@ -26,10 +26,10 @@ app.post('/uploads', upload.array('files'), (req, res) => {
 
     if (fs.existsSync(`database/${req.files[0].originalname}`)) {
         console.log(`${req.files[0].originalname} successfully saved`)
-        return res.sendStatus(202);
+        return res.status(202).send("file successfully uploaded");
     } else {
         console.log("File upload unsuccessful")
-        return res.status(500).send("File not found");
+        return res.status(400).send("File not saved");
 
     }
 });
