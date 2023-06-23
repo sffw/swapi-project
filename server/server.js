@@ -23,14 +23,16 @@ const upload = multer({ storage: storage });
 
 app.post('/uploads', upload.array('files'), (req, res) => {
 
-    if (fs.existsSync(`database/${req.files[0].originalname}`)) {
-        console.log(`${req.files[0].originalname} successfully saved`)
-        return res.status(202).send("file successfully uploaded");
-    } else {
-        console.log("File upload unsuccessful")
-        return res.status(400).send("File not saved");
+    for (let file of req.files) {
+        if (fs.existsSync(`database/${file.originalname}`)) {
+            console.log(`${file.originalname} successfully saved`)
+        } else {
+            console.log("File upload unsuccessful")
+            return res.status(400).send("File not saved");
 
+        }
     }
+    return res.status(202).send("file successfully uploaded");
 });
 
 app.listen(PORT, () => console.log("Server running on port " + PORT));
