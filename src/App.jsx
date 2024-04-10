@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import styles from "./styles/App.module.css";
-import { TableArea } from "./components/table/TableArea";
+import { TableArea } from "./components/Table/TableArea";
 import { Navbar } from "./components/navbar/Navbar";
 
 const queryClient = new QueryClient({
